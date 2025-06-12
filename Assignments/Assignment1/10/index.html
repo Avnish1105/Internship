@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Registration Form</title>
+</head>
+<body>
+ <form>
+ <p>Please enter your credentials:</p>
+ Username: <input type="text" name="username" required><br>
+ Password: <input type="password" name="password" required pattern=".{6,}"><br>
+ Email: <input type="email" name="email" required><br>
+ Phone: <input type="tel" name="phone" pattern="[0-9]{10}" required><br>
+ <input type="submit" value="Register">
+ </form>
+</body>
+</html>
