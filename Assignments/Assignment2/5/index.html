@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pure CSS Tabs</title>
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --light: #f5f5f5;
+      --text: #333;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: var(--light);
+      padding: 2rem;
+    }
+
+    .tabs {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* Hide the radio buttons */
+    input[type="radio"] {
+      display: none;
+    }
+
+    .tab-labels {
+      display: flex;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .tab-labels label {
+      flex: 1;
+      padding: 1rem;
+      background: #e0e0e0;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab-labels label:hover {
+      background: #d3d3d3;
+    }
+
+    input#tab1:checked ~ .tab-labels label[for="tab1"],
+    input#tab2:checked ~ .tab-labels label[for="tab2"],
+    input#tab3:checked ~ .tab-labels label[for="tab3"] {
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      background: white;
+      padding: 1.5rem;
+      border: 2px solid var(--primary);
+      border-top: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .content {
+      display: none;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 0.5s ease, height 0.3s ease;
+    }
+
+    input#tab1:checked ~ .tab-content .content1,
+    input#tab2:checked ~ .tab-content .content2,
+    input#tab3:checked ~ .tab-content .content3 {
+      display: block;
+      height: auto;
+      opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+    <!-- Radio Buttons -->
+    <input type="radio" id="tab1" name="tab-group" checked>
+    <input type="radio" id="tab2" name="tab-group">
+    <input type="radio" id="tab3" name="tab-group">
+
+    <!-- Labels (Tab Headers) -->
+    <div class="tab-labels">
+      <label for="tab1">Overview</label>
+      <label for="tab2">Features</label>
+      <label for="tab3">Pricing</label>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+      <div class="content content1">
+        <h3>Overview</h3>
+        <p>This is the overview of our amazing product.</p>
+      </div>
+      <div class="content content2">
+        <h3>Features</h3>
+        <p>Our product offers clean design, fast performance, and modern UX.</p>
+      </div>
+      <div class="content content3">
+        <h3>Pricing</h3>
+        <p>Choose from Basic, Pro, and Enterprise plans tailored for your needs.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
